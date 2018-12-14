@@ -98,7 +98,7 @@ export class Show extends Component {
             </Link>
           </Grid>
           <Grid item>
-            <Link as={"/edit"} href={"edit"}>
+            <Link as={`/jobs/${jobs.id}/edit`} href={`/jobs/${jobs.id}/edit`}>
               <Button
                 variant="contained"
                 color="secondary"
