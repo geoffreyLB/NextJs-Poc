@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 import Fab from "@material-ui/core/Fab";
-import fetch from "isomorphic-unfetch";
+import fetch from "node-fetch";
 import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
@@ -61,9 +61,11 @@ const Index = ({ classes, jobs }) => (
             );
           })}
           <TableRow>
-            <Fab color="primary" aria-label="Add" className={classes.fab}>
-              +
-            </Fab>
+            <Link as={`/jobs/create`} href={`jobs/create`}>
+              <Fab color="primary" aria-label="Add" className={classes.fab}>
+                +
+              </Fab>
+            </Link>
           </TableRow>
         </TableBody>
       </Table>

@@ -1,29 +1,33 @@
 import React, { Fragment } from "react";
 
+import Button from "@material-ui/core/Button";
 import Link from "next/link";
-import fetch from "isomorphic-unfetch";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 
-const Index = props => (
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
+  }
+});
+
+const Home = props => (
   <Fragment>
-    <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <Link as={`/show/${show.id}`} href={`/show/${show.id}`}>
-            <a>{show.title}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <h1>Welcome to MisterJobs with NextJS</h1>
+    <Link as={`/jobs/`} href={`/jobs/`}>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={props.classes.button}
+      >
+        Get started
+      </Button>
+    </Link>
   </Fragment>
 );
 
-Index.getInitialProps = async function() {
-  const res = await fetch("http://localhost:3030/v2/jobs");
-  const data = await res.json();
-  console.log("data", data);
-  return {
-    shows: data.data
-  };
+Home.propTypes = {
+  classes: PropTypes.object.isRequired
 };
 
-export default Index;
+export default withStyles(styles)(Home);
