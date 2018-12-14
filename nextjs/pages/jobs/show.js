@@ -42,12 +42,11 @@ const Show = ({ classes, jobs }) => {
 };
 
 Show.getInitialProps = async function(ctx) {
-  console.log('coucoucoucoucocucouocu')
-  console.log(ctx.query.id)
+  console.log(ctx.query.id);
   const id = ctx.query.id;
   const res = await fetch(`http://localhost:3030/v2/jobs/${id}`);
   const data = await res.json();
-  console.log(data)
+  console.log("DATA :", data);
   return {
     jobs: data.data
   };
