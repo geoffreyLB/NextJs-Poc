@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+import Fab from "@material-ui/core/Fab";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
@@ -20,6 +21,11 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700
+  },
+  fab: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+    marginLeft: theme.spacing.unit * 3
   }
 });
 
@@ -54,6 +60,11 @@ const Index = ({ classes, jobs }) => (
               </TableRow>
             );
           })}
+          <TableRow>
+            <Fab color="primary" aria-label="Add" className={classes.fab}>
+              +
+            </Fab>
+          </TableRow>
         </TableBody>
       </Table>
     </Paper>
