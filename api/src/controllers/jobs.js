@@ -33,7 +33,7 @@ module.exports.create = async ctx => {
 
     const job = { ...body };
 
-    const jobs = await Job.create({ job });
+    const jobs = await Job.create(job);
 
     ctx.body = {
         data: jobs,
@@ -45,6 +45,8 @@ module.exports.patch = async ctx => {
         params: { id },
         request: { body },
     } = ctx;
+
+    console.log('====>', ctx.request.body);
 
     const [, [job]] = await Job.update(body, {
         where: { id },
