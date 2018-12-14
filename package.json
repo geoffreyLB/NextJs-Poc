@@ -11,5 +11,6 @@
   "bugs": {
     "url": "https://github.com/geoffreyLB/NextJs-Poc/issues"
   },
-  "homepage": "https://github.com/geoffreyLB/NextJs-Poc#readme"
+  "homepage": "https://github.com/geoffreyLB/NextJs-Poc#readme",
+  "dependencies": {}
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import fetch from "isomorphic-unfetch";
+import Button from "@material-ui/core/Button";
+import fetch from "node-fetch";
 import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
 
 export default class JobsEdit extends Component {
   state = {
@@ -40,31 +42,105 @@ export default class JobsEdit extends Component {
     return null;
   }
 
-  handleChange = () => {};
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  };
 
   render() {
-    // const {
-    //   contractType,
-    //   createdAt,
-    //   description,
-    //   endDate,
-    //   id,
-    //   reference,
-    //   startDate,
-    //   title,
-    //   updatedAt
-    // } = this.props;
-    console.log(this.state);
+    const {
+      state: {
+        contractType,
+        createdAt,
+        description,
+        endDate,
+        reference,
+        startDate,
+        title
+      },
+      props: { job }
+    } = this;
+
+    if (!job) {
+      return null;
+    }
+
     return (
-      <form noValidate autoComplete="off">
-        <TextField
-          id="standard-name"
-          label="Name"
-          value={this.state.name}
-          onChange={this.handleChange}
-          margin="normal"
-        />
-      </form>
+      <Grid container justify="center" spacing={24}>
+        <Grid item xs={6}>
+          <TextField
+            name="title"
+            label="Titre"
+            value={title}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            name="contractType"
+            label="Type de contract"
+            value={contractType}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            multiline
+            name="startDate"
+            label="Date de début"
+            value={startDate}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            multiline
+            name="endDate"
+            label="Date de fin"
+            value={endDate}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            multiline
+            name="reference"
+            label="Reference"
+            value={reference}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            name="createdAt"
+            label="Date de Création"
+            value={createdAt}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            multiline
+            name="description"
+            label="description"
+            value={description}
+            onChange={this.handleChange}
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+      </Grid>
     );
   }
 }
