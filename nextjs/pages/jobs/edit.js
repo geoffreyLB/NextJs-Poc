@@ -23,6 +23,7 @@ export default class JobsEdit extends Component {
     const res = await fetch(`${CONFIG.api.url}/jobs/${id}`);
     const { data } = await res.json();
 
+
     return { job: data };
   }
 
