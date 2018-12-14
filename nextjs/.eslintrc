@@ -11,22 +11,14 @@
         "ecmaVersion": 9,
         "sourceType": "module"
     },
-    "plugins": ["prettier", "react", "import", "mistertemp"],
+    "plugins": ["prettier", "react", "import"],
     "rules": {
         "prettier/prettier": "error",
         "import/no-unresolved": [2, { "commonjs": true }],
         "import/named": 2,
         "import/namespace": 2,
         "import/default": 2,
-        "import/export": 2,
-        "mistertemp/order-imports": [
-            "error",
-            {
-                "ignoreCase": true,
-                "ignoreMemberSort": false,
-                "newLineBetweenGroups": true
-            }
-        ]
+        "import/export": 2
     },
     "extends": [
         "eslint:recommended",
