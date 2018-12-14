@@ -33,7 +33,7 @@ module.exports.create = async ctx => {
 
     const job = { ...body };
 
-    const jobs = await Job.create({ job });
+    const jobs = await Job.create(job);
 
     ctx.body = {
         data: jobs,
