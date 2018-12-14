@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/geoffreyLB/NextJs-Poc/issues"
   },
-  "homepage": "https://github.com/geoffreyLB/NextJs-Poc#readme"
+  "homepage": "https://github.com/geoffreyLB/NextJs-Poc#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
 }
