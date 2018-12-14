@@ -20,7 +20,7 @@ export default class JobsEdit extends Component {
   };
 
   static async getInitialProps({ query: { id } }) {
-    const res = await fetch(`http://localhost:3030/v2/jobs/${id}`);
+    const res = await fetch(`${CONFIG.api.url}/jobs/${id}`);
     const { data } = await res.json();
 
     return { job: data };
@@ -64,7 +64,7 @@ export default class JobsEdit extends Component {
       }
     } = this;
 
-    const res = await fetch(`http://localhost:3030/v2/jobs/${id}`, {
+    const res = await fetch(`${CONFIG.api.url}/jobs/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         contractType,
