@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -27,15 +28,23 @@ const styles = theme => ({
     justifyContent: "center",
     marginTop: 50
   },
-  title: {
-    color: "red"
-  },
   description: {
     marginBottom: 20
+  },
+  button: {
+    margin: theme.spacing.unit
+  },
+  buttonsContainer: {
+    marginTop: 60
   }
 });
 
 const Show = ({ classes, jobs }) => {
+  const createdAt = moment(jobs.createdAt).format("MMMM Do YYYY");
+  const updatedAt = moment(jobs.updatedAt).format("MMMM Do YYYY");
+  const startDate = moment(jobs.startDate).format("MMMM Do YYYY");
+  const endDate = moment(jobs.endDate).format("MMMM Do YYYY");
+
   return (
     <Fragment>
       <Grid container spacing={24} className={classes.body}>
@@ -54,17 +63,35 @@ const Show = ({ classes, jobs }) => {
             <Typography className={classes.description} component="p">
               {jobs.description}
             </Typography>
-            <Typography component="p">Date début: {jobs.startDate}</Typography>
-            <Typography component="p">Date de fin: {jobs.endDate}</Typography>
+            <Typography component="p">Date début: {startDate}</Typography>
+            <Typography component="p">Date de fin: {endDate}</Typography>
             <Typography component="p">
               Type contrat: {jobs.contractType}
             </Typography>
-            <Typography component="p">Créé le: {jobs.createdAt}</Typography>
-            <Typography component="p">
-              Mis à jour le: {jobs.updatedAt}
-            </Typography>
+            <Typography component="p">Créé le: {createdAt}</Typography>
+            <Typography component="p">Mis à jour le: {updatedAt}</Typography>
           </CardContent>
         </Card>
+      </Grid>
+      <Grid container justify="center" className="buttonsContainer">
+        <Grid item>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
+            Jobs List
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+          >
+            Edit Job
+          </Button>
+        </Grid>
       </Grid>
     </Fragment>
   );
