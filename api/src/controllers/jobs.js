@@ -46,6 +46,8 @@ module.exports.patch = async ctx => {
         request: { body },
     } = ctx;
 
+    console.log('====>', ctx.request.body);
+
     const [, [job]] = await Job.update(body, {
         where: { id },
         individualHooks: true,
