@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
+    "dev": "nodemon",
     "build": "next build",
     "start": "next start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "next": "^7.0.2",
+    "next-routes": "^1.4.2",
+    "nodemon": "^1.18.8",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
